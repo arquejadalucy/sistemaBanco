@@ -1,6 +1,6 @@
-/*Esse projeto foi desenvolvido pela aluna Lucy Késsila Arquejada Velasco - PC3015581, do curso Engenharia da Computação
-do Instituto Federal de São Paulo campus Piracicaba, para a disciplina de Algorítmos e Lógica de Programação 2 (ALPC2),
-conforme proposto pela professora Andreia Novelli. Projeto 1 - Opção 1.*/
+/*Esse projeto foi desenvolvido pela aluna Lucy KÃ©ssila Arquejada Velasco - PC3015581, do curso Engenharia da ComputaÃ§Ã£o
+do Instituto Federal de SÃ£o Paulo campus Piracicaba, para a disciplina de AlgorÃ­tmos e LÃ³gica de ProgramaÃ§Ã£o 2 (ALPC2),
+conforme proposto pela professora Andreia Novelli. Projeto 1 - OpÃ§Ã£o 1.*/
 
 
 #include <stdlib.h>
@@ -8,6 +8,7 @@ conforme proposto pela professora Andreia Novelli. Projeto 1 - Opção 1.*/
 #include <string.h>
 #include <locale.h>
 #include <stdbool.h>
+
 #define MAX 100
 typedef struct contas cnts;
 struct contas
@@ -42,6 +43,7 @@ struct clientes
 }clientes[MAX];
 
 void menuPrincipal();
+int main();
 
 void inserir_nova_conta();
 void inserir_novo_cliente();
@@ -65,7 +67,7 @@ void inserir_novo_cliente(){
 	bool existe;
 	do{
 		clientes[qtd_clts_cadastrado].num_cliente=num;
-		printf("\n Numeração do cliente: %d", clientes[qtd_clts_cadastrado].num_cliente);
+		printf("\n NumeraÃ§Ã£o do cliente: %d", clientes[qtd_clts_cadastrado].num_cliente);
 		printf("\nRG: ");
 		scanf("%d", &clientes[qtd_clts_cadastrado].RG);
 		/*do{
@@ -78,7 +80,7 @@ void inserir_novo_cliente(){
 				for (int i=0;i<qtd_clts_cadastrado;i++){
 					if (clientes[qtd_clts_cadastrado].RG==clientes[i].RG)
 					{
-						printf("Esse cliente já está cadastrado.");
+						printf("Esse cliente jÃ¡ estÃ¡ cadastrado.");
 						existe=true;
 					}
 				}
@@ -87,12 +89,12 @@ void inserir_novo_cliente(){
 		while (existe=true);*/
 		fflush(stdin);
 		printf("\nNome: "); gets(clientes[qtd_clts_cadastrado].nome);
-		printf("\nEndereço: "); gets(clientes[qtd_clts_cadastrado].endereco);
+		printf("\nEndereÃ§o: "); gets(clientes[qtd_clts_cadastrado].endereco);
 		printf("\nDDD+Telefone: "); gets(clientes[qtd_clts_cadastrado].ddd_telefone);
 		printf("\nRenda: "); scanf("%f", &clientes[qtd_clts_cadastrado].renda);
 		
 		do {
-			printf("\nTipo de cliente: 1) Pessoa física - 2) Pessoa jurídica\n"); scanf("%d", &clientes[qtd_clts_cadastrado].tipo_cliente);
+			printf("\nTipo de cliente: 1) Pessoa fÃ­sica - 2) Pessoa jurÃ­dica\n"); scanf("%d", &clientes[qtd_clts_cadastrado].tipo_cliente);
 			switch (clientes[qtd_clts_cadastrado].tipo_cliente){
 				case 1:
 		        	printf("\nDigite o CPF: ");
@@ -103,7 +105,7 @@ void inserir_novo_cliente(){
 					scanf("%d",&clientes[qtd_clts_cadastrado].cpf_ou_cnpj.cnpj);
 					break;
 				default:
-					printf("\nOpção invalida! Tente novamente.\n");
+					printf("\nOpÃ§Ã£o invalida! Tente novamente.\n");
 			}
 		} while(clientes[qtd_clts_cadastrado].tipo_cliente != 1 && clientes[qtd_clts_cadastrado].tipo_cliente != 2);
         fflush(stdin);
@@ -112,15 +114,15 @@ void inserir_novo_cliente(){
         printf("\nNumero: %d",clientes[qtd_clts_cadastrado].num_cliente);
         printf("\nNome: %s",clientes[qtd_clts_cadastrado].nome);
         printf("\nRG: %d",clientes[qtd_clts_cadastrado].RG);
-        printf("\nEndereço: %s",clientes[qtd_clts_cadastrado].endereco);
+        printf("\nEndereÃ§o: %s",clientes[qtd_clts_cadastrado].endereco);
         printf("\nTelefone: %s",clientes[qtd_clts_cadastrado].ddd_telefone);
 		printf("\nRenda: %f",clientes[qtd_clts_cadastrado].renda);
 		
 		if (clientes[qtd_clts_cadastrado].tipo_cliente==1){
-			printf("\nTipo de cliente: 1) Pessoa física");
+			printf("\nTipo de cliente: 1) Pessoa fÃ­sica");
 			printf("\nCPF: %d",clientes[qtd_clts_cadastrado].cpf_ou_cnpj.cpf);
 		} else{
-			printf("\nTipo de cliente: 2) Pessoa jurídica");
+			printf("\nTipo de cliente: 2) Pessoa jurÃ­dica");
 			printf("\nCNPJ: %d",clientes[qtd_clts_cadastrado].cpf_ou_cnpj.cnpj);
 		}
 		
@@ -140,7 +142,7 @@ void inserir_nova_conta(){
 
 	//===========VERIFICA TITULARES=================
 	do{
-		printf("\nQuantos titulares essa conta terá? (Mínimo:1 - Máximo: 5)"); scanf("%d", &qtd_titulares);
+		printf("\nQuantos titulares essa conta terÃ¡? (MÃ­nimo:1 - MÃ¡ximo: 5)"); scanf("%d", &qtd_titulares);
 		
 			contas[qtd_cnts_cadastrado].qtd_titulares=qtd_titulares;
 			for (int i=0; i<qtd_titulares; i++){
@@ -166,18 +168,18 @@ void inserir_nova_conta(){
 		                }
 	    	}
 	    	if (existe<qtd_titulares){
-	    		printf("\n Cliente não registrado. Por favor, cadastre o cliente antes de cadastrar uma conta.");
+	    		printf("\n Cliente nÃ£o registrado. Por favor, cadastre o cliente antes de cadastrar uma conta.");
 		        break;
 			} else{
 	    	//==============CADASTRA CONTA===============
 				fflush(stdin);
 				contas[qtd_cnts_cadastrado].num_conta= num;
 				
-				printf("\nNúmero da conta: %d", contas[qtd_cnts_cadastrado].num_conta);
+				printf("\nNÃºmero da conta: %d", contas[qtd_cnts_cadastrado].num_conta);
 				printf("\nChave PIX: "); scanf("%d",&contas[qtd_cnts_cadastrado].chave_pix);
 				printf("\nSaldo: "); scanf("%f", &contas[qtd_cnts_cadastrado].saldo);
-				printf("\nAgência: "); scanf("%d", &contas[qtd_cnts_cadastrado].agencia);
-				printf("\nTipo de conta: 1) Conta-corrente - 2) Conta poupança - 3) Conta salário - 4) Conta digital - 5) Conta universitária: \n"); 
+				printf("\nAgÃªncia: "); scanf("%d", &contas[qtd_cnts_cadastrado].agencia);
+				printf("\nTipo de conta: 1) Conta-corrente - 2) Conta poupanÃ§a - 3) Conta salÃ¡rio - 4) Conta digital - 5) Conta universitÃ¡ria: \n"); 
 				scanf("%d", &contas[qtd_cnts_cadastrado].tipo_conta);
 				
 				fflush(stdin);
@@ -188,22 +190,22 @@ void inserir_nova_conta(){
 				
 				/*printf("\nNumero da Conta: %d",contas[qtd_cnts_cadastrado].num_conta);
 		        printf("\nSaldo: %f",contas[qtd_cnts_cadastrado].saldo);
-		        printf("\nNúmero da Agência: %d",contas[qtd_cnts_cadastrado].agencia);
+		        printf("\nNÃºmero da AgÃªncia: %d",contas[qtd_cnts_cadastrado].agencia);
 		        switch(contas[qtd_cnts_cadastrado].tipo_conta){
 					case 1:
 						printf("\n Tipo de conta: 1) Conta-corrente");
 						break;
 					case 2:
-						printf("2) Conta poupança");
+						printf("2) Conta poupanÃ§a");
 						break;
 					case 3:
-						printf("3) Conta salário");
+						printf("3) Conta salÃ¡rio");
 						break;
 					case 4:
 						printf("4) Conta digital");
 						break;
 					case 5:
-						printf("5) Conta universitária");
+						printf("5) Conta universitÃ¡ria");
 						break;
 				}
 		        for (int i=0; i<qtd_titulares; i++){
@@ -233,7 +235,7 @@ void imprimir_dados_conta(int num){
 		do{
 		if (qtd_cnts_cadastrado == 0){
 			achou=false;
-			printf("\n Não há nenhuma conta cadastrada no momento.");
+			printf("\n NÃ£o hÃ¡ nenhuma conta cadastrada no momento.");
 			break;
 		} 
 		for (indice=0; indice<qtd_cnts_cadastrado;indice++){
@@ -242,7 +244,7 @@ void imprimir_dados_conta(int num){
 				achou = true;
 				printf("\nNumero da Conta: %d",contas[indice].num_conta);
 		        printf("\nSaldo: %f",contas[indice].saldo);
-		        printf("\nNúmero da Agência: %d",contas[indice].agencia);
+		        printf("\nNÃºmero da AgÃªncia: %d",contas[indice].agencia);
 		        for (int i=0; i<qtd_titulares; i++){
 				
 		            printf("\nNome do titular : %s \n", contas[indice].nome_titulares[i]);
@@ -253,16 +255,16 @@ void imprimir_dados_conta(int num){
 						printf("\n Tipo de conta: 1) Conta-corrente");
 						break;
 					case 2:
-						printf("\n Tipo de conta: 2) Conta poupança");
+						printf("\n Tipo de conta: 2) Conta poupanÃ§a");
 						break;
 					case 3:
-						printf("\n Tipo de conta: 3) Conta salário");
+						printf("\n Tipo de conta: 3) Conta salÃ¡rio");
 						break;
 					case 4:
 						printf("\n Tipo de conta: 4) Conta digital");
 						break;
 					case 5:
-						printf("\n Tipo de conta: 5) Conta universitária");
+						printf("\n Tipo de conta: 5) Conta universitÃ¡ria");
 						break;
 				}
 				fflush(stdin);
@@ -275,14 +277,14 @@ void imprimir_dados_conta(int num){
 		}
 		
 			if (achou==false){
-				printf("\nConta não encontrada.");
+				printf("\nConta nÃ£o encontrada.");
 			}
 			printf("\n");
 			fflush(stdin);
 			printf("Deseja acessar outra conta? 1- Sim 0 - Nao ");
 			scanf ("%d", &op);
 			if (op==1){
-				printf("\nDigite o número da conta: ");
+				printf("\nDigite o nÃºmero da conta: ");
 				scanf("%d", &num);
 			}
 	
@@ -297,7 +299,7 @@ void imprimir_dados_cliente(){
 		do{
 		if (qtd_clts_cadastrado == 0){
 		achou=0;
-		printf("\n Não há nenhum cliente cadastrado no momento.");
+		printf("\n NÃ£o hÃ¡ nenhum cliente cadastrado no momento.");
 		break;
 		}
 		printf("\n RG do cliente que deseja acessar: "); scanf("%d", &rg);
@@ -308,22 +310,22 @@ void imprimir_dados_cliente(){
 				printf("\nNumero: %d",clientes[indice].num_cliente);
 		        printf("\nNome: %s",clientes[indice].nome);
 		        printf("\nRG: %d",clientes[indice].RG);
-		        printf("\nEndereço: %s",clientes[indice].endereco);
+		        printf("\nEndereÃ§o: %s",clientes[indice].endereco);
 		        printf("\nTelefone: %s",clientes[indice].ddd_telefone);
 				printf("\nRenda: %f",clientes[indice].renda);
 				
 				if (clientes[indice].tipo_cliente==1){
-					printf("\nTipo de cliente: 1) Pessoa física");
+					printf("\nTipo de cliente: 1) Pessoa fÃ­sica");
 					printf("\nCPF: %d",clientes[indice].cpf_ou_cnpj.cpf);
 				} else{
-					printf("\nTipo de cliente: 2) Pessoa jurídica");
+					printf("\nTipo de cliente: 2) Pessoa jurÃ­dica");
 					printf("\nCNPJ: %d",clientes[indice].cpf_ou_cnpj.cnpj);
 				}
 			        
 				} 
 			}
 			if(achou != 1){
-				printf("\nCliente não encontrado.");
+				printf("\nCliente nÃ£o encontrado.");
 			}
 			fflush(stdin);
 			
@@ -340,7 +342,7 @@ void atualizar_cliente(){
 	do{
 		if (qtd_clts_cadastrado == 0){
 			achou=0;
-			printf("\n Não há nenhum cliente cadastrado no sistema no momento.");
+			printf("\n NÃ£o hÃ¡ nenhum cliente cadastrado no sistema no momento.");
 			break;
 		} else{
 			printf("\n RG do cliente a ser atualizado: "); scanf("%d", &rg);
@@ -351,10 +353,10 @@ void atualizar_cliente(){
 					indice=i;
 					printf(
                 "\n============= Atualizar dados do cliente ============= \n\n"
-                "Escolha uma das opções abaixo: \n"
+                "Escolha uma das opÃ§Ãµes abaixo: \n"
                 "Tecle '1' para editar o nome do cliente\n"
                 "Tecle '2' para editar o RG \n"
-                "Tecle '3' para editar o endereço\n"
+                "Tecle '3' para editar o endereÃ§o\n"
                 "Tecle '4' para editar o telefone\n"
                 "Tecle '5' para editar a renda\n"
                 "Tecle '0' para sair\n\n"
@@ -373,7 +375,7 @@ void atualizar_cliente(){
                 	break;
                 case 3:
                 	fflush(stdin);
-                	printf("Novo endereço: ");
+                	printf("Novo endereÃ§o: ");
                 	gets(clientes[indice].endereco);
                 	break;
                 case 4:
@@ -400,7 +402,7 @@ void atualizar_cliente(){
 	}
 		fflush(stdin);
 		if (achou ==0){
-			printf("\nCliente não encontrado.");
+			printf("\nCliente nÃ£o encontrado.");
 		}
 		printf("\n");
 		printf("Deseja acessar outro cliente? 1- Sim 0 - Nao ");
@@ -416,11 +418,11 @@ void atualizar_conta(){
 	do{
 		if (qtd_cnts_cadastrado == 0){
 		achou=false;
-		printf("\n Não há nenhuma conta cadastrada no momento.");
+		printf("\n NÃ£o hÃ¡ nenhuma conta cadastrada no momento.");
 		break;
 		
 			}
-		printf("\n Número da conta que deseja acessar: "); scanf("%d", &num);
+		printf("\n NÃºmero da conta que deseja acessar: "); scanf("%d", &num);
 		for (int i=0; i<qtd_clts_cadastrado;i++){	
 			if (contas[i].num_conta==num){
 				achou = true;
@@ -431,7 +433,7 @@ void atualizar_conta(){
 		if (achou){
 			printf(
                 "\n============= Atualizar dados do cliente ============= \n\n"
-                "Escolha uma das opções abaixo: \n"
+                "Escolha uma das opÃ§Ãµes abaixo: \n"
                 "Tecle '1' para atualizar o saldo da conta\n"
                 "Tecle '2' para atualizar os titulares da conta \n"
                 "Tecle '0' para sair\n\n"
@@ -476,7 +478,7 @@ void atualizar_conta(){
                 	fflush(stdin);
                 	break;
 			}
-		} else printf("\nCliente não encontrado.");
+		} else printf("\nCliente nÃ£o encontrado.");
 			
 		
 		fflush(stdin);
@@ -492,12 +494,12 @@ void imprimir_clientes_agencia(){
 	bool encontroucontas=false, encontrouclientes=false;
 		do{
 		
-		printf("\n Número da agência que deseja acessar: "); scanf("%d", &ag);
+		printf("\n NÃºmero da agÃªncia que deseja acessar: "); scanf("%d", &ag);
 		
 		for (i=0; i<qtd_cnts_cadastrado;i++){	
 			if (qtd_clts_cadastrado == 0){
 				encontrouclientes=false;
-				printf("\n Não há nenhum cliente cadastrado no momento.");
+				printf("\n NÃ£o hÃ¡ nenhum cliente cadastrado no momento.");
 				break;
 			}
 			if (contas[i].agencia==ag) {
@@ -507,7 +509,7 @@ void imprimir_clientes_agencia(){
 				}
 		
 		if (encontroucontas==false) {
-			printf("\nNenhuma conta encontrada nesta agência.");
+			printf("\nNenhuma conta encontrada nesta agÃªncia.");
 			break;
 			}
 			
@@ -517,15 +519,15 @@ void imprimir_clientes_agencia(){
 				printf("\nNumero: %d",clientes[indice].num_cliente);
 			        printf("\nNome: %s",clientes[indice].nome);
 			        printf("\nRG: %d",clientes[indice].RG);
-			        printf("\nEndereço: %s",clientes[indice].endereco);
+			        printf("\nEndereÃ§o: %s",clientes[indice].endereco);
 			        printf("\nTelefone: %s",clientes[indice].ddd_telefone);
 					printf("\nRenda: %f",clientes[indice].renda);
 					
 					if (clientes[indice].tipo_cliente==1){
-						printf("\nTipo de cliente: 1) Pessoa física");
+						printf("\nTipo de cliente: 1) Pessoa fÃ­sica");
 						printf("\nCPF: %d",clientes[indice].cpf_ou_cnpj.cpf);
 					} else{
-						printf("\nTipo de cliente: 2) Pessoa jurídica");
+						printf("\nTipo de cliente: 2) Pessoa jurÃ­dica");
 						printf("\nCNPJ: %d",clientes[indice].cpf_ou_cnpj.cnpj);
 					}
 				}
@@ -534,15 +536,15 @@ void imprimir_clientes_agencia(){
 					printf("\nNumero: %d",clientes[indice].num_cliente);
 			        printf("\nNome: %s",clientes[indice].nome);
 			        printf("\nRG: %d",clientes[indice].RG);
-			        printf("\nEndereço: %s",clientes[indice].endereco);
+			        printf("\nEndereÃ§o: %s",clientes[indice].endereco);
 			        printf("\nTelefone: %s",clientes[indice].ddd_telefone);
 					printf("\nRenda: %f",clientes[indice].renda);
 					
 					if (clientes[indice].tipo_cliente==1){
-						printf("\nTipo de cliente: 1) Pessoa física");
+						printf("\nTipo de cliente: 1) Pessoa fÃ­sica");
 						printf("\nCPF: %d",clientes[indice].cpf_ou_cnpj.cpf);
 					} else{
-						printf("\nTipo de cliente: 2) Pessoa jurídica");
+						printf("\nTipo de cliente: 2) Pessoa jurÃ­dica");
 						printf("\nCNPJ: %d",clientes[indice].cpf_ou_cnpj.cnpj);
 					}
 					        
@@ -568,10 +570,10 @@ void imprimir_contas_tipo_agencia(){
 	do{
 	
 		if (qtd_cnts_cadastrado == 0){
-		printf("\n Não há nenhuma conta cadastrada no momento.");
+		printf("\n NÃ£o hÃ¡ nenhuma conta cadastrada no momento.");
 		break;
 		} 
-			printf("\n Número da agência que deseja acessar: "); scanf("%d", &ag);
+			printf("\n NÃºmero da agÃªncia que deseja acessar: "); scanf("%d", &ag);
 			printf("\n Tipo de contas que deseja acessar: "); scanf("%d", &tipo);
 			fflush(stdin);
 			for (indice=0; indice<qtd_cnts_cadastrado;indice++){
@@ -579,22 +581,22 @@ void imprimir_contas_tipo_agencia(){
 					encontrou=true;
 					printf("\nNumero da Conta: %d",contas[indice].num_conta);
 			        printf("\nSaldo: %f",contas[indice].saldo);
-			        printf("\nNúmero da Agência: %d",contas[indice].agencia);
+			        printf("\nNÃºmero da AgÃªncia: %d",contas[indice].agencia);
 			        switch(contas[indice].tipo_conta){
 						case 1:
 							printf("\n Tipo de Conta: 1) Conta-corrente");
 							break;
 						case 2:
-							printf("\n Tipo de Conta: 2) Conta poupança");
+							printf("\n Tipo de Conta: 2) Conta poupanÃ§a");
 							break;
 						case 3:
-							printf("\n Tipo de Conta: 3) Conta salário");
+							printf("\n Tipo de Conta: 3) Conta salÃ¡rio");
 							break;
 						case 4:
 							printf("\n Tipo de Conta: 4) Conta digital");
 							break;
 						case 5:
-							printf("\n Tipo de Conta: 5) Conta universitária");
+							printf("\n Tipo de Conta: 5) Conta universitÃ¡ria");
 							break;
 						default:
 							break;
@@ -626,14 +628,14 @@ void depositar(){
 	char nome[70];
 	bool contaencontrada=false;
 	do{
-		printf("==============DEPÓSITO=====================");
+		printf("==============DEPÃ“SITO=====================");
 		printf("\nDigite seu nome completo: ");
 		scanf("%s",&nome[70]);
 		fflush(stdin);
-		printf("\nNúmero da conta na qual deseja depositar: ");
+		printf("\nNÃºmero da conta na qual deseja depositar: ");
 		scanf("%d", &num);
 		fflush(stdin);
-		printf("\nNúmero da Agência: ");
+		printf("\nNÃºmero da AgÃªncia: ");
 		scanf("%d", &ag);
 		fflush(stdin);
 		printf("\nDigite o valor que deseja depositar: ");
@@ -642,28 +644,28 @@ void depositar(){
 		for (int i=0; i<qtd_cnts_cadastrado; i++){
 			if (qtd_cnts_cadastrado == 0){
 				contaencontrada=false;
-				printf("\n Não há nenhuma conta cadastrada no momento.");
+				printf("\n NÃ£o hÃ¡ nenhuma conta cadastrada no momento.");
 				break;
 			}
 			if (contas[i].agencia==ag && contas[i].num_conta==num){
 				contaencontrada=true;
 				contas[i].saldo=(valor + contas[i].saldo);
 				printf("\nValor depositado com sucesso");
-				printf("\nNúmero da Conta: %d", contas[i].num_conta);
+				printf("\nNÃºmero da Conta: %d", contas[i].num_conta);
 				printf("\nNome do Titular 1: %s", contas[i].nome_titulares[0][50]);
-				printf("\nNome da pessoa que efetuou o depósito: %s", nome[50]);
+				printf("\nNome da pessoa que efetuou o depÃ³sito: %s", nome[50]);
 				printf("\nNovo saldo = %f", contas[i].saldo);
 				break;
 			}
 		}
 		if (contaencontrada==false){
-			printf("\nConta não encontrada.");
+			printf("\nConta nÃ£o encontrada.");
 			break;
 		} 
 		
 		fflush(stdin);
 		printf("\n");
-		printf("Deseja realizar outro depósito? 1- Sim 0 - Nao ");
+		printf("Deseja realizar outro depÃ³sito? 1- Sim 0 - Nao ");
 		scanf ("%d", &op);
 		} while(op != 0);
 	
@@ -675,7 +677,7 @@ void sacar(){
 	
 	do{
 		printf("==========SAQUE==============");
-		printf("\n Digite o número da conta corrente: ");
+		printf("\n Digite o nÃºmero da conta corrente: ");
 		scanf("%d", &num);
 		for (int i=0; i<qtd_cnts_cadastrado; i++){
 			if (contas[i].num_conta==num && contas[i].tipo_conta==1){
@@ -683,7 +685,7 @@ void sacar(){
 				printf("\nDigite o valor que deseja sacar: ");
 				scanf("%f", &valor);
 				if (valor>contas[i].saldo){
-					printf("\nNão é possível sacar esse valor.");
+					printf("\nNÃ£o Ã© possÃ­vel sacar esse valor.");
 				} else{
 					contas[i].saldo=(contas[i].saldo - valor);
 					printf("\n Saque realizado com sucesso.");
@@ -693,7 +695,7 @@ void sacar(){
 			} 
 		}
 		if (achouconta==0){
-			printf("\nConta corrente não encontrada.");
+			printf("\nConta corrente nÃ£o encontrada.");
 		}
 		fflush(stdin);
 		printf("\nDeseja realizar outro saque?");
@@ -707,10 +709,10 @@ void pix(){
 	char nome[70];
 	bool contaencontrada=false;
 	do{
-		printf("==============DEPÓSITO=====================");
+		printf("==============DEPÃ“SITO=====================");
 		printf("\nDigite seu nome completo: ");
 		scanf("%s",&nome[70]);
-		printf("\nInsira a chave PIX da operação: ");
+		printf("\nInsira a chave PIX da operaÃ§Ã£o: ");
 		scanf("%d", &pix);
 	
 		printf("\nDigite o valor que deseja depositar: ");
@@ -718,14 +720,14 @@ void pix(){
 		for (int i=0; i<qtd_cnts_cadastrado; i++){
 			if (qtd_cnts_cadastrado == 0){
 				contaencontrada=false;
-				printf("\n Não há nenhuma conta cadastrada no sistema.");
+				printf("\n NÃ£o hÃ¡ nenhuma conta cadastrada no sistema.");
 				break;
 			}
 			if (contas[i].chave_pix==pix){
 				contaencontrada=true;
 				contas[i].saldo=(valor + contas[i].saldo);
 				printf("\nValor depositado com sucesso");
-				printf("\nCódigo PIX: %d", contas[i].chave_pix);
+				printf("\nCÃ³digo PIX: %d", contas[i].chave_pix);
 				printf("\nNome do Titular 1: %d", contas[i].nome_titulares[0]);
 				printf("\nNome da pessoa que efetuou o pagamento: %s", nome[70]);
 				printf("\nValor transferido: %f", valor);
@@ -733,13 +735,13 @@ void pix(){
 			}
 		}
 		if (contaencontrada=false){
-			printf("\nConta não encontrada. Verifique o código PIX e tente novamente.");
+			printf("\nConta nÃ£o encontrada. Verifique o cÃ³digo PIX e tente novamente.");
 			break;
 		} 
 		
 		fflush(stdin);
 		printf("\n");
-		printf("Deseja realizar outro depósito? 1- Sim 0 - Nao ");
+		printf("Deseja realizar outro depÃ³sito? 1- Sim 0 - Nao ");
 		scanf ("%d", &op);
 		} while(op != 0);
 }
@@ -753,11 +755,11 @@ void menuPrincipal()
 		printf("\n2) Inserir nova conta");
 	    printf("\n3) Imprimir dados de uma conta");
 	    printf("\n4) Imprimir dados de um cliente");
-	    printf("\n5) Imprimir todos os clientes de uma agência");
-	    printf("\n6) Imprimir todas as contas de um tipo de uma agência");
+	    printf("\n5) Imprimir todos os clientes de uma agÃªncia");
+	    printf("\n6) Imprimir todas as contas de um tipo de uma agÃªncia");
 	    printf("\n7) Atualizar dados de um cliente");
 	    printf("\n8) Atualizar dados de uma conta");
-	    printf("\n9) Depósito");
+	    printf("\n9) DepÃ³sito");
 	    printf("\n10) Saque");
 	    printf("\n11) Pix");
 	    printf("\n0) Sair\n");
@@ -774,7 +776,7 @@ void menuPrincipal()
 	        	inserir_nova_conta();
 				break;
 	        case 3:
-	        	printf("\n Número da conta que deseja acessar: "); scanf("%d", &num);
+	        	printf("\n NÃºmero da conta que deseja acessar: "); scanf("%d", &num);
 	            imprimir_dados_conta(num);
 	            break;
 	        case 4:
