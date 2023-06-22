@@ -1,4 +1,4 @@
-# projetoAlgoritmos2
+# sistemaBanco
 Projeto desenvolvido para a disciplina Algoritmos e Lógica de Programação 2, utilizando conceito de Estruturas. 
 
 Um banco armazena dados de seus clientes, suas contas correntes e a movimentação de cada conta. Pensando na movimentação que os clientes fazem em suas contas vamos controlar nesse sistema os depósitos e saques nas contas correntes, para isso vamos implementar algumas funcionalidades.
