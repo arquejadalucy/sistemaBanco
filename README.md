@@ -11,22 +11,22 @@ O programa deve ter uma organização que permita a execução das funcionalidad
 As funcionalidades devem ser desenvolvidas em funções.
 ## Funcionalidades propostas:
 * Inserção:
-** Novas contas
-** Novos Clientes
+▪ Novas contas
+▪ Novos Clientes
 * Impressão
-** Imprimir dados de uma conta
-** Imprimir dados de um Cliente
-** Todos os clientes de uma agência
-** Todas as contas de um tipo de uma agência.
+▪ Imprimir dados de uma conta
+▪ Imprimir dados de um Cliente
+▪ Todos os clientes de uma agência
+▪ Todas as contas de um tipo de uma agência.
 * Atualização
-** Dados dos clientes
+▪ Dados dos clientes
 ▪ Não é permitido mudar CPF do cliente.
-** Dados das contas
+▪ Dados das contas
 ▪ Não é permitido mudar número da conta, agência e tipo de
 conta.
 * Deposito
-** Dado um valor e uma conta e uma agência, fazer uma função que faça o deposito do valor na conta. Quando o deposito for feito faça a impressão do número da conta, do nome do cliente e do novo saldo. (Lembre-se que o deposito aumenta o saldo da conta).
+▪ Dado um valor e uma conta e uma agência, fazer uma função que faça o deposito do valor na conta. Quando o deposito for feito faça a impressão do número da conta, do nome do cliente e do novo saldo. (Lembre-se que o deposito aumenta o saldo da conta).
 * Saque 
-** Faça uma função que execute o saque de um determinado valor da conta corrente fornecida. Se o saque foi possível imprima todos os dados da conta e se não for possível imprima uma mensagem para o usuário.
+▪ Faça uma função que execute o saque de um determinado valor da conta corrente fornecida. Se o saque foi possível imprima todos os dados da conta e se não for possível imprima uma mensagem para o usuário.
 * Pix
-** Dado o valor do código PIX da operação, faça uma função que efetue o pagamento ou crédito do valor fornecido.
+▪ Dado o valor do código PIX da operação, faça uma função que efetue o pagamento ou crédito do valor fornecido.
